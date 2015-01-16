@@ -79,7 +79,7 @@ window.Interactions = {};
 
 	Init.prototype.loop = function(){
 		var limit = 0.01;
-		var rotateSpeed = 0.05;
+		var rotateSpeed = 0.04;
 		var scaleSpeed = 0.5;
 		var moveSpeed = 0.3;
 		if(Math.abs(target.x - rotation.x)+Math.abs(target.y - rotation.y)>limit){

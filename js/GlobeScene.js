@@ -73,7 +73,7 @@
         this.bg = THIS.bg;
         this.h = THIS.h;
 
-        this.BroadCastDelay = 6500;
+        this.BroadCastDelay = 5400;
         var sceneDelay = this.sceneDelay = 200;
 
         this.ep = new EventProxy();
@@ -154,7 +154,7 @@
 
         window.text.text(info);
 
-        var lnglat = getLnglat(url);
+        var lnglat = this.lnglat = getLnglat(url);
         this.globe.viewAt(lnglat);
         this.globe.addCenter(lnglat,this.h) //增加地理上的mark
 
@@ -166,8 +166,13 @@
             img.src = url;
             img.onload = function() {
 
-                setTimeout(function(){self.globe.zoomIn();},1800);
-                setTimeout(function(){self.globe.zoomOut();},delay-1400);
+                setTimeout(function(){self.globe.zoomIn();},1600);
+                setTimeout(function(){
+                    self.globe.zoomOut();
+                    var lat = -self.lnglat.lat;
+                    var lng = self.lnglat.lng+360;
+                    self.globe.viewAt({lng:lng,lat:lat});
+                },delay-1100);
 
                 floatTag.broadCastImg(img,delay,info);
                 setTimeout(function(){this.ep.emit('next');}.bind(this),delay);
@@ -185,7 +190,6 @@
         var info = infos.split('.')[0];
         info = info.split('|');
         info = {name:info[0],area:info[1],'helper':info[2]}
-        console.log(info)
         return info;
     }
 
