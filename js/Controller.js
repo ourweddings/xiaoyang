@@ -45,7 +45,7 @@ window.titleText = '这个星球上的祝福 - the world wishes';
 
   Controller.prototype.time = function(title) { //进去一个状态，过一段时间发生变化
     var self = this;
-    var delay = 12000;
+    var delay = 8000;
 
     setTimeout(
       function() {
@@ -64,10 +64,7 @@ window.titleText = '这个星球上的祝福 - the world wishes';
   }
 
   Controller.prototype.text = function(text) {
-    $('#article')
-    .text(text)
-    .attr("href", "http://www.52zhongtou.com/ProjectView/Detail/pid/560") 
-    .css('cursor','pointer')
+    $('#article').text(text)
   }
   
   Controller.prototype.title = function(title) {
