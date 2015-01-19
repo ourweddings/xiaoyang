@@ -43,7 +43,7 @@ var imgSRC = 'image/';
 
   GeoTexture.prototype.loadBgImg = function(){
     var img = new Image();
-    var bgURL = '../data/world1.png';
+    var bgURL = './data/world1.png';
     img.src = bgURL;
     img.onload = function(){
        this.ctxBg.drawImage(img,0,0,this.canvasBg.width,this.canvasBg.height);
