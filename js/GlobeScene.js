@@ -183,7 +183,8 @@
         var strs = url.split('/');
         var infos = strs[strs.length-1];
         var info = infos.split('.')[0];
-        info = info.split('|');
+        //info = info.split('|');
+        info = info.split('_');
         info = {name:info[0],area:info[1],'helper':info[2]}
         console.log(info)
         return info;
@@ -193,8 +194,10 @@
         var strs = url.split('/');
         var infos = strs[strs.length-3];
 
-        var lng = parseFloat(infos.split('|')[1]);
-        var lat = parseFloat(infos.split('|')[2]);
+        //var lng = parseFloat(infos.split('|')[1]);
+        //var lat = parseFloat(infos.split('|')[2]);
+        var lng = parseFloat(infos.split('_')[1]);
+        var lat = parseFloat(infos.split('_')[2]);
 
         return {lng:lng,lat:lat};
     }
